@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { updatePost, addPost } from '../reducers/posts'
 import { Form } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom'
 
 class PostForm extends React.Component {
   initialState = { 
@@ -24,9 +25,11 @@ class PostForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const post = {...this.state}
-    const { dispatch } = this.props
+    const { dispatch, history } = this.props
     const func = this.props.id ? updatePost : addPost
     dispatch(func(post))
+    this.setState({...this.initialState})
+    history.push("/posts")
   }
 
   render() {
@@ -51,4 +54,4 @@ class PostForm extends React.Component {
   }
 }
 
-export default connect()(PostForm);
+export default withRouter(connect()(PostForm));

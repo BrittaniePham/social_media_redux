@@ -6,9 +6,6 @@ import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
 import PostForm from './PostForm';
 
 class Posts extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(getPosts())
-  }
 
   posts = () => {
     return this.props.posts.map( post => 
@@ -22,6 +19,11 @@ class Posts extends React.Component {
           <Card.Description>
             {post.body}
           </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <Link to={`/posts/${post.id}`}>
+            View post
+          </Link>
         </Card.Content>
       </Card>
     )

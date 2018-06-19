@@ -4,12 +4,12 @@ import Home from './components/Home';
 import Posts from './components/Posts';
 import Post from './components/Post';
 import NoMatch from './components/NoMatch';
+import FetchPosts from './components/FetchPosts';
 
 const App = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route exact path="/posts" component={Posts} />
-    <Route exact path="/posts/:id" component={Post} />
+    <Route path="/posts" component={FetchPosts} />
     <Route component={NoMatch} />
   </Switch>
 )
