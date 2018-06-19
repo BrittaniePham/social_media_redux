@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux'
 import {
   Divider,
-  Header,
   Container,
   Table,
   Button,
 } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import PostForm from './PostForm'
+import { deletePost } from '../reducers/posts'
 
 class Post extends React.Component {
   state = { showForm: false }
@@ -18,7 +18,7 @@ class Post extends React.Component {
   }
 
   render() {
-    const { post = {} } = this.props
+    const { post = {}, dispatch } = this.props
     const { showForm } = this.state
     return(
       <Container>
@@ -26,6 +26,9 @@ class Post extends React.Component {
         <Divider/>
         <Button onClick={this.toggleForm}>
           { showForm ? 'Cancel' : 'Edit' }
+        </Button>
+        <Button onClick={() => dispatch(deletePost(post.id))}>
+          Delete
         </Button>
         { showForm ?
             <PostForm closeForm={this.toggleForm} {...post} />

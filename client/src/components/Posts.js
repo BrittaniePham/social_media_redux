@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'; //connects store and dispatch to props??
 import { Link } from 'react-router-dom';
 import { getPosts } from '../reducers/posts';
-import { Container, Grid, Header, Card, Image } from 'semantic-ui-react';
+import { Container, Header, Card, } from 'semantic-ui-react';
 import PostForm from './PostForm';
 
 class Posts extends React.Component {

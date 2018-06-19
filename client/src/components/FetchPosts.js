@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 import Posts from './Posts';
 import Post from './Post';
 import { getPosts } from '../reducers/posts';
-import { Loader, Segment, Dimmer } from 'semantic-ui-react';
 
 class FetchPosts extends React.Component {
 
